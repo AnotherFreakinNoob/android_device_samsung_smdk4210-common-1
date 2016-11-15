@@ -82,7 +82,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := ./device/samsung/smdk4210-common/releasetools/
 endif
 
 # Hardware tunables
-BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS := \
+    hardware/samsung/cmhw \
+    device/samsung/smdk4210-common/cmhw
 
 # Graphics
 BOARD_EGL_CFG := device/samsung/smdk4210-common/configs/egl.cfg
