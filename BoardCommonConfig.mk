@@ -168,6 +168,7 @@ TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/u1kor/fstab.smdk
 else
 TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/unified/fstab.smdk4210
 endif
+TARGET_RECOVERY_DENSITY := mdpi
 RECOVERY_FSTAB_VERSION := 2
 
 # Device specific headers
