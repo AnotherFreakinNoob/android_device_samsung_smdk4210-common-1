@@ -66,14 +66,20 @@ MALLOC_IMPL := dlmalloc
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
+ifneq ($(filter u1ktt u1skt,$(TARGET_DEVICE)),)
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824
+else
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 536870912
+endif
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147467264
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Releasetools
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/samsung/smdk4210-common/releasetools/smdk4210_ota_from_target_files
 TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := ./device/samsung/smdk4210-common/releasetools/smdk4210_img_from_target_files
+ifneq ($(filter q1exx u1att u1nxx u1xx,$(TARGET_DEVICE)),)
 TARGET_RELEASETOOLS_EXTENSIONS := ./device/samsung/smdk4210-common/releasetools/extensions
+endif
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
@@ -147,7 +153,11 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/smdk4210-common/bluetooth/vnd_smdk4210.txt
 
 # Selinux
-BOARD_SEPOLICY_DIRS += device/samsung/smdk4210-common/selinux
+ifneq ($(filter u1ktt u1skt,$(TARGET_DEVICE)),)
+BOARD_SEPOLICY_DIRS += device/samsung/smdk4210-common/selinux/u1kor
+else
+BOARD_SEPOLICY_DIRS += device/samsung/smdk4210-common/selinux/unified
+endif
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/smdk4210-common/recovery/recovery_keys.c
@@ -158,7 +168,11 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 BOARD_RECOVERY_SWIPE := true
-TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/fstab.smdk4210
+ifneq ($(filter u1ktt u1skt,$(TARGET_DEVICE)),)
+TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/u1kor/fstab.smdk4210
+else
+TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/unified/fstab.smdk4210
+endif
 RECOVERY_FSTAB_VERSION := 2
 
 # Device specific headers
