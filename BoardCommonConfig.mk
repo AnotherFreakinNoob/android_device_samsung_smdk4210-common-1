@@ -64,7 +64,7 @@ MALLOC_SVELTE := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
-ifneq ($(filter u1ktt u1skt,$(TARGET_DEVICE)),)
+ifneq ($(filter u1ktt u1lgt u1skt,$(TARGET_DEVICE)),)
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824
 else
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
@@ -147,7 +147,7 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 BOARD_CUSTOM_BT_CONFIG := device/samsung/smdk4210-common/bluetooth/vnd_smdk4210.txt
 
 # Selinux
-ifneq ($(filter u1ktt u1skt,$(TARGET_DEVICE)),)
+ifneq ($(filter u1ktt u1lgt u1skt,$(TARGET_DEVICE)),)
 BOARD_SEPOLICY_DIRS += device/samsung/smdk4210-common/selinux/u1kor
 else
 BOARD_SEPOLICY_DIRS += device/samsung/smdk4210-common/selinux/unified
@@ -163,7 +163,7 @@ BOARD_PROVIDES_BOOTLOADER_MESSAGE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 BOARD_RECOVERY_SWIPE := true
-ifneq ($(filter u1ktt u1skt,$(TARGET_DEVICE)),)
+ifneq ($(filter u1ktt u1lgt u1skt,$(TARGET_DEVICE)),)
 TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/u1kor/fstab.smdk4210
 else
 TARGET_RECOVERY_FSTAB := device/samsung/smdk4210-common/rootdir/unified/fstab.smdk4210

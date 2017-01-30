@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(filter q1exx u1att u1ktt u1nxx u1skt u1xx,$(TARGET_DEVICE)),)
+ifneq ($(filter q1exx u1att u1ktt u1lgt u1nxx u1skt u1xx,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))

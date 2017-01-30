@@ -88,7 +88,7 @@ done
 
 LOCAL_PATH := \$(call my-dir)
 
-ifneq (\$(filter q1exx u1att u1ktt u1nxx u1skt u1xx,\$(TARGET_DEVICE)),)
+ifneq (\$(filter q1exx u1att u1ktt u1lgt u1nxx u1skt u1xx,\$(TARGET_DEVICE)),)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libUMP
